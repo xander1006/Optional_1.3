@@ -14,7 +14,28 @@ public class Main {
             j++;
         }
 
+        boolean sorted = false;
+        int temp;
+        int lengthNum = String.valueOf(arr[0]).length();
+        while (!sorted){
+            sorted = true;
+            for (int i = 0;i < arr.length-1; i++){
+                if (String.valueOf(arr[i]).length() > String.valueOf(arr[i+1]).length()){
+                    lengthNum += String.valueOf(arr[i+1]).length();
+                    temp = arr[i];
+                    arr[i] = arr[i+1];
+                    arr[i+1] = temp;
+                    sorted = false;
+                }
+            }
+        }
+        int srednee = lengthNum/number;
+        System.out.println("Srednee chislo = " + srednee);
 
-
+        for (int i=0; i <= arr.length; i++){
+            if (String.valueOf(arr[i]).length() < srednee){
+                System.out.print(arr[i] + " ");
+            }
+        }
     }
 }
